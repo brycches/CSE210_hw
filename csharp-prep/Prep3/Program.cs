@@ -5,6 +5,7 @@ class Program
     static void Main(string[] args)
     {
         int gNumber = 0;
+        int guesses = 0;
         Random randomGenerator = new Random();
         int mNumber = randomGenerator.Next(1, 101);
         do {
@@ -21,9 +22,9 @@ class Program
             } else
             {
                 Console.WriteLine("you guessed correctly! ");
-                Console.WriteLine($"It took you {guesses} guesses")
+                Console.WriteLine($"It took you {guesses} guesses");
             }
-            int guesses += 1;
+            guesses += 1;
         
             } while (gNumber != mNumber);
             
