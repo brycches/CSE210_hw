@@ -14,9 +14,9 @@ public class Resume
         Console.WriteLine($"Name: {Name}");
         Console.WriteLine("Jobs:");
 
-        foreach (var job in Jobs)
+        foreach (var jobDisplay in Jobs)
         {
-            job.Display();
+            jobDisplay.Display();
         }
     }
 };

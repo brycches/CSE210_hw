@@ -10,7 +10,7 @@ public class Job
 
     public Job()
     {
-
+        
     }
 
     public void Display()
