@@ -70,7 +70,7 @@ class Program
         string json = JsonSerializer.Serialize(journal);
 
         // Save the JSON string to the file
-        File.AppendAllText(fileName, json);
+        File.WriteAllText(fileName, json);
     }
 
     static Journal LoadJournalFromJsonFile(string fileName)
