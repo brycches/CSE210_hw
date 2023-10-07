@@ -1,5 +1,8 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
+
 class Program
 {
     static void Main(string[] args)
@@ -27,7 +30,8 @@ class Program
 
         // Create a new journal
         Journal journal = new Journal();
-        journal.Name = "";
+        Console.WriteLine("what is the name of your journal? ");
+        journal.Name = Console.ReadLine();
 
         // Add the entry to the journal
         journal.Entries.Add(entry);
@@ -35,71 +39,20 @@ class Program
         Console.WriteLine("What is the name of your journal file? ");
         string fileName = Console.ReadLine();
 
-        // Write journal entries to a file
-        using (StreamWriter outputFile = File.AppendText(fileName))
-        {
-            foreach (Entry journalEntry in journal.Entries)
-            {
-                // Write each entry to the file
-                outputFile.WriteLine($"Date: {journalEntry.EntryDate}");
-                outputFile.WriteLine($"Prompt: {journalEntry.Prompt}");
-                outputFile.WriteLine($"Response: {journalEntry.Response}");
-                outputFile.WriteLine();
-            }
-        }
+        // Save journal entries to a file in JSON format
+        SaveJournalToJsonFile(journal, fileName);
 
         Console.WriteLine("Do you want to load a journal from a file? y/n ");
         string load = Console.ReadLine();
         if (load.ToLower() == "y")
         {
-            Console.WriteLine("Enter the filename to load the journal from: ");
-            string loadFileName = Console.ReadLine();
-
-            journal = new Journal();
-            journal.Name = "";
-            
-            try
-            {
-                using (StreamReader inputFile = new StreamReader(loadFileName))
-                {
-                    string line;
-                    Entry currentEntry = null;
-
-                    while ((line = inputFile.ReadLine()) != null)
-                    {
-                        if (line.StartsWith("Date: "))
-                        {
-                            currentEntry = new Entry();
-                            currentEntry.EntryDate = line.Substring("Date: ".Length);
-                        }
-                        else if (line.StartsWith("Prompt: "))
-                        {
-                            currentEntry.Prompt = line.Substring("Prompt: ".Length);
-                        }
-                        else if (line.StartsWith("Response: "))
-                        {
-                            currentEntry.Response = line.Substring("Response: ".Length);
-                            journal.Entries.Add(currentEntry);
-                        }
-                    }
-                }
-            }
-            catch (FileNotFoundException)
-            {
-                Console.WriteLine("The specified file was not found.");
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine($"An error occurred: {e.Message}");
-            }
-
-            Console.WriteLine("Journal loaded successfully.");
+            // Load journal from JSON file using the same fileName
+            journal = LoadJournalFromJsonFile(fileName);
         }
-    
 
-        Console.WriteLine("Would you like to see all entries in your journal? y/n ");
-        string print = Console.ReadLine();
-        if (print.ToLower() == "y")
+        Console.WriteLine("Would you like to print your journal? y/n ");
+        string printJournal = Console.ReadLine();
+        if (printJournal.ToLower() == "y")
         {
             foreach (Entry journalEntry in journal.Entries)
             {
@@ -110,15 +63,36 @@ class Program
                 Console.WriteLine();
             }
         }
+    }
 
+    static void SaveJournalToJsonFile(Journal journal, string fileName)
+    {
+        string json = JsonSerializer.Serialize(journal);
 
+        // Save the JSON string to the file
+        File.AppendAllText(fileName, json);
+    }
 
+    static Journal LoadJournalFromJsonFile(string fileName)
+    {
+        try
+        {
+            string json = File.ReadAllText(fileName);
 
+            // Deserialize the JSON string back to a Journal object
+            Journal journal = JsonSerializer.Deserialize<Journal>(json);
 
+            return journal;
+        }
+        catch (FileNotFoundException)
+        {
+            Console.WriteLine("The specified file was not found.");
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine($"An error occurred: {e.Message}");
+        }
 
-
-
-
-
+        return new Journal(); // Return an empty journal if loading fails
     }
 }
