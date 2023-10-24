@@ -1,16 +1,20 @@
-public class word
+class Word
 {
-    private string _word;
+    public string Text { get; private set; }
+    public bool Hidden { get; private set; }
 
-    public string RandomlyReturnBlank()
+    public Word(string text)
     {
-
+        Text = text;
+        Hidden = false;
     }
 
-    public string ReturnWord()
+    public void HideWord()
     {
-
+        if (!Hidden)
+        {
+            Hidden = true;
+            Text = new string('_', Text.Length);
+        }
     }
-
-
 }
