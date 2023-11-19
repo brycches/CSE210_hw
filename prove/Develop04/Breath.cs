@@ -1,4 +1,4 @@
-public class Breath
+public class Breath : Common
 {
 
     public bool BreathDescription()
@@ -18,18 +18,18 @@ public class Breath
         Console.WriteLine("");
         while (time >= 10)
         {
-            Common timer = new Common();
+            // Common timer = new Common();
             
             
             
             Console.Write("breath in");
             Console.WriteLine("");
-            timer.Timer(5);
+            this.Timer(5);
             time = time - 5;
             Console.Write("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
             Console.Write("breath out");
             Console.WriteLine("");
-            timer.Timer(5);
+            this.Timer(5);
             time = time - 5;
             Console.WriteLine("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
 

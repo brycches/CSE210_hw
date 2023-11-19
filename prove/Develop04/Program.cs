@@ -1,6 +1,6 @@
 using System;
 
-class Program
+public class Program
 {
     static void Main(string[] args)
     {
@@ -8,7 +8,9 @@ class Program
         Breath breath = new Breath();
         Reflection reflection = new Reflection();
         Listing listing = new Listing();
-        Common common = new Common();
+
+
+        // Common common = new Common();
     
         while (done == false)
         {
@@ -17,7 +19,7 @@ class Program
             if (activity.ToLower().Contains("breathing"))
             {
                 int time = getTime(0);
-                if (common.Description("breath"))
+                if (breath.Description("breath"))
                 {
                     breath.RunBreath(time);
                 }
@@ -30,7 +32,7 @@ class Program
             else if (activity.ToLower().Contains("reflection"))
             {
                 int time = getTime(20);
-                if (common.Description("reflection") && time >= 20)
+                if (reflection.Description("reflection") && time >= 20)
                 {
                     reflection.RunReflection(time);
                 }
@@ -49,7 +51,7 @@ class Program
             else if (activity.ToLower().Contains("listing"))
             {
                 int time = getTime(11);
-                if (common.Description("listing") && time > 11)
+                if (listing.Description("listing") && time > 11)
                 
                 {
                     listing.RunListing(time);

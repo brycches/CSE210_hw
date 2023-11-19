@@ -1,4 +1,4 @@
-class Listing
+public class Listing : Common
 {
     public void RunListing(int time)
     {
@@ -6,7 +6,7 @@ class Listing
         Common timer = new Common();
         Console.WriteLine("Get ready for the Reflection activity");
         Console.WriteLine("");
-        List<string> prompts = new List<string> 
+        List<string> prompts = new List<string>
         {
             "Who are people that you appreciate?",
             "What are personal strengths of yours?",
@@ -22,7 +22,7 @@ class Listing
         DateTime startTime = DateTime.Now;
         DateTime futureTime = startTime.AddSeconds(time);
         Console.WriteLine("You may now begin entering answers to the above prompt");
-        List<string> answers = new List<string>{};
+        List<string> answers = new List<string> { };
         while (DateTime.Now < futureTime)
         {
             string userInput = Console.ReadLine();
@@ -40,7 +40,7 @@ class Listing
             using (System.IO.StreamWriter file = new System.IO.StreamWriter(fileName + ".txt"))
             {
                 file.WriteLine($"Prompt: {prompts[randomIndex]}");
-                
+
                 file.WriteLine("Answers:");
                 foreach (var answer in answers)
                 {

@@ -1,4 +1,4 @@
-class Reflection
+public class Reflection : Common
 {
     public void RunReflection(int time)
     {
