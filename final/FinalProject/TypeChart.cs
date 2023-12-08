@@ -1,0 +1,32 @@
+class TypeChart
+{
+    Dictionary<string, Dictionary<string, double>> typeChartDict = new Dictionary<string, Dictionary<string, double>>();
+
+    private Dictionary<string, Dictionary<string, double>> makeTypeDict()
+    {   typeChartDict.Add("Normal", new Dictionary<string, double> {{"Bug", 1}, {"Dark", 1}, {"Dragon", 1}, {"Electric", 1}, {"Fairy", 1}, {"Fighting", 2}, {"Fire", 1}, {"Flying", 1}, {"Ghost", 0}, {"Grass", 1}, {"Ground", 1}, {"Ice", 1}, {"Normal", 1}, {"Poison", 1}, {"Psychic", 1}, {"Rock", 1}, {"Steel", 1}, {"Water", 1}});
+        typeChartDict.Add("Fire", new Dictionary<string, double> {{"Bug", 0.5}, {"Dark", 1}, {"Dragon", 1}, {"Electric", 1}, {"Fairy", 0.5}, {"Fighting", 1}, {"Fire", 0.5}, {"Flying", 1}, {"Ghost", 1}, {"Grass", 0.5}, {"Ground", 2}, {"Ice", 0.5}, {"Normal", 1}, {"Poison", 1}, {"Psychic", 1}, {"Rock", 2}, {"Steel", 0.5}, {"Water", 2}});
+        typeChartDict.Add("Water", new Dictionary<string, double> {{"Bug", 1}, {"Dark", 1}, {"Dragon", 1}, {"Electric", 2}, {"Fairy", 1}, {"Fighting", 1}, {"Fire", 0.5}, {"Flying", 1}, {"Ghost", 1}, {"Grass", 2}, {"Ground", 1}, {"Ice", 0.5}, {"Normal", 1}, {"Poison", 1}, {"Psychic", 1}, {"Rock", 1}, {"Steel", 0.5}, {"Water", 0.5}});
+        typeChartDict.Add("Electric", new Dictionary<string, double> {{"Bug", 1}, {"Dark", 1}, {"Dragon", 1}, {"Electric", 0.5}, {"Fairy", 1}, {"Fighting", 1}, {"Fire", 1}, {"Flying", 0.5}, {"Ghost", 1}, {"Grass", 1}, {"Ground", 2}, {"Ice", 1}, {"Normal", 1}, {"Poison", 1}, {"Psychic", 1}, {"Rock", 1}, {"Steel", 0.5}, {"Water", 1}});
+        typeChartDict.Add("Grass", new Dictionary<string, double> {{"Bug", 2}, {"Dark", 1}, {"Dragon", 1}, {"Electric", 0.5}, {"Fairy", 1}, {"Fighting", 1}, {"Fire", 2}, {"Flying", 2}, {"Ghost", 1}, {"Grass", 0.5}, {"Ground", 0.5}, {"Ice", 2}, {"Normal", 1}, {"Poison", 2}, {"Psychic", 1}, {"Rock", 1}, {"Steel", 1}, {"Water", 0.5}});
+        typeChartDict.Add("Ice", new Dictionary<string, double> {{"Bug", 1}, {"Dark", 1}, {"Dragon", 1}, {"Electric", 1}, {"Fairy", 1}, {"Fighting", 2}, {"Fire", 2}, {"Flying", 1}, {"Ghost", 1}, {"Grass", 1}, {"Ground", 1}, {"Ice", 0.5}, {"Normal", 1}, {"Poison", 1}, {"Psychic", 1}, {"Rock", 2}, {"Steel", 2}, {"Water", 1}});
+        typeChartDict.Add("Fighting", new Dictionary<string, double> {{"Bug", 0.5}, {"Dark", 0.5}, {"Dragon", 1}, {"Electric", 1}, {"Fairy", 2}, {"Fighting", 1}, {"Fire", 1}, {"Flying", 2}, {"Ghost", 1}, {"Grass", 1}, {"Ground", 1}, {"Ice", 1}, {"Normal", 1}, {"Poison", 1}, {"Psychic", 2}, {"Rock", 0.5}, {"Steel", 1}, {"Water", 1}});
+        typeChartDict.Add("Poison", new Dictionary<string, double> {{"Bug", 0.5}, {"Dark", 1}, {"Dragon", 1}, {"Electric", 1}, {"Fairy", 0.5}, {"Fighting", 0.5}, {"Fire", 1}, {"Flying", 1}, {"Ghost", 1}, {"Grass", 0.5}, {"Ground", 2}, {"Ice", 1}, {"Normal", 1}, {"Poison", 0.5}, {"Psychic", 2}, {"Rock", 1}, {"Steel", 1}, {"Water", 1}});
+        typeChartDict.Add("Ground", new Dictionary<string, double> {{"Bug", 1}, {"Dark", 1}, {"Dragon", 1}, {"Electric", 0}, {"Fairy", 1}, {"Fighting", 1}, {"Fire", 1}, {"Flying", 1}, {"Ghost", 1}, {"Grass", 2}, {"Ground", 1}, {"Ice", 2}, {"Normal", 1}, {"Poison", 0.5}, {"Psychic", 1}, {"Rock", 0.5}, {"Steel", 1}, {"Water", 2}});
+        typeChartDict.Add("Flying", new Dictionary<string, double> {{"Bug", 0.5}, {"Dark", 1}, {"Dragon", 1}, {"Electric", 2}, {"Fairy", 1}, {"Fighting", 0.5}, {"Fire", 1}, {"Flying", 1}, {"Ghost", 1}, {"Grass", 0.5}, {"Ground", 0}, {"Ice", 2}, {"Normal", 1}, {"Poison", 1}, {"Psychic", 1}, {"Rock", 2}, {"Steel", 1}, {"Water", 1}});
+        typeChartDict.Add("Psychic", new Dictionary<string, double> {{"Bug", 2}, {"Dark", 2}, {"Dragon", 1}, {"Electric", 1}, {"Fairy", 1}, {"Fighting", 0.5}, {"Fire", 1}, {"Flying", 1}, {"Ghost", 2}, {"Grass", 1}, {"Ground", 1}, {"Ice", 1}, {"Normal", 1}, {"Poison", 1}, {"Psychic", 0.5}, {"Rock", 1}, {"Steel", 1}, {"Water", 1}});
+        typeChartDict.Add("Bug", new Dictionary<string, double> {{"Bug", 1}, {"Dark", 1}, {"Dragon", 1}, {"Electric", 1}, {"Fairy", 1}, {"Fighting", 0.5}, {"Fire", 2}, {"Flying", 2}, {"Ghost", 1}, {"Grass", 0.5}, {"Ground", 0.5}, {"Ice", 1}, {"Normal", 1}, {"Poison", 1}, {"Psychic", 1}, {"Rock", 2}, {"Steel", 1}, {"Water", 1}});
+        typeChartDict.Add("Rock", new Dictionary<string, double> {{"Bug", 1}, {"Dark", 1}, {"Dragon", 1}, {"Electric", 1}, {"Fairy", 1}, {"Fighting", 2}, {"Fire", 0.5}, {"Flying", 0.5}, {"Ghost", 1}, {"Grass", 2}, {"Ground", 2}, {"Ice", 1}, {"Normal", 0.5}, {"Poison", 0.5}, {"Psychic", 1}, {"Rock", 1}, {"Steel", 2}, {"Water", 2}});
+        typeChartDict.Add("Ghost", new Dictionary<string, double> {{"Bug", 0.5}, {"Dark", 2}, {"Dragon", 1}, {"Electric", 1}, {"Fairy", 1}, {"Fighting", 0}, {"Fire", 1}, {"Flying", 1}, {"Ghost", 2}, {"Grass", 1}, {"Ground", 1}, {"Ice", 1}, {"Normal", 0}, {"Poison", 0.5}, {"Psychic", 1}, {"Rock", 1}, {"Steel", 1}, {"Water", 1 }});
+        typeChartDict.Add("Steel", new Dictionary<string, double> {{"Bug", 0.5}, {"Dark", 1}, {"Dragon", 0.5}, {"Electric", 1}, {"Fairy", 0.5}, {"Fighting", 2}, {"Fire", 2}, {"Flying", 0.5}, {"Ghost", 1}, {"Grass", 0.5}, {"Ground", 2}, {"Ice", 0.5}, {"Normal", 0.5}, {"Poison", 0}, {"Psychic", 0.5}, {"Rock", 0.5}, {"Steel", 0.5}, {"Water", 1}});
+        typeChartDict.Add("Dragon", new Dictionary<string, double> {{"Bug", 1}, {"Dark", 1}, {"Dragon", 2}, {"Electric", 0.5}, {"Fairy", 2}, {"Fighting", 1}, {"Fire", 0.5}, {"Flying", 1}, {"Ghost", 1}, {"Grass", 0.5}, {"Ground", 1}, {"Ice", 2}, {"Normal", 1}, {"Poison", 1}, {"Psychic", 1}, {"Rock", 1}, {"Steel", 1}, {"Water", 0.5}});
+        typeChartDict.Add("Dark", new Dictionary<string, double> {{"Bug", 2}, {"Dark", 0.5}, {"Dragon", 1}, {"Electric", 1}, {"Fairy", 2}, {"Fighting", 2}, {"Fire", 1}, {"Flying", 1}, {"Ghost", 0.5}, {"Grass", 1}, {"Ground", 1}, {"Ice", 1}, {"Normal", 1}, {"Poison", 1}, {"Psychic", 0}, {"Rock", 1}, {"Steel", 1}, {"Water", 1}});
+        typeChartDict.Add("Fairy", new Dictionary<string, double> {{"Bug", 0.5}, {"Dark", 0.5}, {"Dragon", 0}, {"Electric", 1}, {"Fairy", 1}, {"Fighting", 0.5}, {"Fire", 1}, {"Flying", 1}, {"Ghost", 1}, {"Grass", 1}, {"Ground", 1}, {"Ice", 1}, {"Normal", 1}, {"Poison", 2}, {"Psychic", 1}, {"Rock", 1}, {"Steel", 2}, {"Water", 1}});
+        return typeChartDict;
+    }
+
+    public Dictionary<string, Dictionary<string, double>> GetTypeChart()
+    {
+        return makeTypeDict();
+    }
+
+}

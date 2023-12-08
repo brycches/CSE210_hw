@@ -1,9 +1,10 @@
-using System;
+﻿using System;
 
 class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello FinalProject World!");
+        Calculator calculator = new Calculator();
+        calculator.the_calculator();
     }
 }
